@@ -18,7 +18,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.di_navi_wdh.ui.screen.FavoriteScreen
 import com.example.di_navi_wdh.ui.screen.HomeScreen
 import com.example.di_navi_wdh.ui.screen.SettingsScreen
+import com.example.di_navi_wdh.ui.viewmodel.HomeViewModel
 import kotlinx.serialization.Serializable
+import org.koin.androidx.compose.koinViewModel
 
 @Serializable
 object HomeRoute
@@ -36,6 +38,8 @@ fun Appstart(
 ) {
     val navController = rememberNavController()
     var selectedTabItem by remember { mutableStateOf(NavItems.Home) }
+
+    val homeViewModel: HomeViewModel = koinViewModel()
 
     Scaffold(
         bottomBar = {
@@ -59,10 +63,10 @@ fun Appstart(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable<HomeRoute> {
-                HomeScreen()
+                HomeScreen(homeViewModel = homeViewModel )
             }
             composable<FavoriteRoute> {
-                FavoriteScreen()
+                FavoriteScreen(favoriteViewModel = koinViewModel(), homeViewModel = homeViewModel)
             }
             composable<SettingsRoute> {
                 SettingsScreen()
