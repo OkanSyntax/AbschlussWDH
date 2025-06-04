@@ -8,8 +8,6 @@ import com.example.di_navi_wdh.data.repository.AnimalRepoImpl
 class HomeViewModel(
     animalRepo: AnimalRepoImpl
 ): ViewModel() {
-
-
     private val repo = animalRepo
     val animalList = repo.animalList
 

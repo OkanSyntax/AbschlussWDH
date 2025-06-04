@@ -1,5 +1,6 @@
 package com.example.di_navi_wdh.ui.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -26,14 +27,19 @@ import com.example.di_navi_wdh.data.model.Animal
 fun AnimalCard(
     modifier: Modifier = Modifier,
     onFavorite: () -> Unit,
-    animal: Animal
+    animal: Animal,
+
+    // Sound
+    onClick: () -> Unit
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
     ) {
         Row(
-            Modifier.fillMaxWidth(),
+            Modifier.fillMaxWidth()
+                    // Sound
+                .clickable{onClick()},
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(modifier = Modifier.padding(16.dp).weight(1f)) {

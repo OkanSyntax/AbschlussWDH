@@ -1,5 +1,6 @@
 package com.example.di_navi_wdh.ui.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
@@ -12,9 +13,13 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun TitleBar(
     modifier: Modifier = Modifier,
-    text: String
+    text: String,
+
+    // Sound
+    onClick: () -> Unit
 ) {
-    Column {
+    Column(modifier
+        .clickable{onClick()}) {
         Text(
             text = text,
             fontSize = 50.sp,

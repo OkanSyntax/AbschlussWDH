@@ -23,6 +23,10 @@ object DummyData {
         Animal(name = "Cheetah", color = "Spotted Yellow"),
         Animal(name = "Leopard", color = "Spotted Brown"),
         Animal(name = "Hippo", color = "Gray"),
-        Animal(name = "Rhino", color = "Dark Gray")
+        Animal(name = "Rhino", color = "Dark Gray"),
+        Animal(name = "Cow", color = "White & Black"),
+        Animal(name = "Frog", color = "Green"),
+        Animal(name = "Goat", color = "White"),
+        Animal(name = "Dog", color = "Black")
     )
 }
