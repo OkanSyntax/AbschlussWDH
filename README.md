@@ -4,4 +4,4 @@
 - Navigation
 - Dependency Injection
 - Sounds
-- Animation (soon)
+- Animation
