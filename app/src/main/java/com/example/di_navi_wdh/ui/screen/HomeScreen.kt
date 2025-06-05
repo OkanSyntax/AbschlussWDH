@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.runtime.getValue
@@ -51,13 +52,14 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
 
-            items(animals) {
+            itemsIndexed(animals) { index, animal ->
                 AnimalCard(
-                    animal = it,
+                    animal = animal,
                     modifier = modifier,
-                    onClick = {soundManager.playSound(it.name)},
+                    onClick = {soundManager.playSound(animal.name)},
+                    index = index,
                     onFavorite = {
-                        homeViewModel.toggleFavorite(it)
+                        homeViewModel.toggleFavorite(animal)
                     }
                 )
             }

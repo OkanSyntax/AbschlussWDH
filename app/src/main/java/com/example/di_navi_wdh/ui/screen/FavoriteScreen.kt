@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.collectAsState
@@ -50,13 +51,14 @@ fun FavoriteScreen(
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(favoriteList) {
+            itemsIndexed(favoriteList) { index, animal ->
                 AnimalCard(
-                    animal = it,
+                    animal = animal,
                     modifier = modifier,
-                    onClick = {soundManager.playSound(it.name)},
+                    index = index,
+                    onClick = {soundManager.playSound(animal.name)},
                     onFavorite = {
-                        homeViewModel.toggleFavorite(it)
+                        homeViewModel.toggleFavorite(animal)
                     }
                 )
             }
